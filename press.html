@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOMANCE Press Library</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/press.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="header"></div>
+
+<main class="page-center">
+  <h1>Womance Approved</h1>
+  <p class="tagline">Zoek, blader en download.</p>
+
+  <input type="text" id="searchInput" placeholder="Zoek in alle categorieën...">
+
+  <div id="categoryButtons">
+    <button data-category="acapellas">🎙️ Acapellas</button>
+    <button data-category="covers">🖼️ Covers</button>
+    <button data-category="instrumentals">🎧 Instrumentals</button>
+    <button data-category="posters">🪧 Posters</button>
+    <button data-category="press">📰 Press</button>
+    <button data-category="reels">🎞️ Reels</button>
+    <button data-category="releases">💿 Releases</button>
+  </div>
+
+  <div id="fileBrowser" class="file-browser"></div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+  fetch("/partials/header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+
+  fetch("/partials/footer.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+<script src="/scripts/press.js"></script>
+</body>
+</html>

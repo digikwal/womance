@@ -1,0 +1,66 @@
+/* press.css – Styling voor WOMANCE press.html */
+
+#searchInput {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.03);
+  }
+  
+  #categoryButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  
+  #categoryButtons button {
+    padding: 0.6rem 1rem;
+    border: none;
+    background-color: #000;
+    color: white;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  #categoryButtons button:hover,
+  #categoryButtons button.active {
+    background-color: #d7337f;
+  }
+  
+  .file-browser {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+  
+  .file-browser a {
+    display: block;
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  
+  .file-browser a:hover {
+    transform: scale(1.03);
+    background: #fff1f7;
+  }
+  
+  .file-browser a span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    word-break: break-all;
+  }

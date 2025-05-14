@@ -1,0 +1,12 @@
+{
+  "name": "womance",
+  "version": "1.0.0",
+  "description": "Pre-build script to generate assets.json for Jekyll site",
+  "main": "generateAssetsJson.js",
+  "scripts": {
+    "generate-assets": "node generateAssetsJson.js"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {}
+}
