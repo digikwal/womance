@@ -40,15 +40,15 @@
   
   .portrait-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin: 2rem 0;
+    flex-wrap: wrap; /* Zorgt ervoor dat items naar een nieuwe regel gaan als er niet genoeg ruimte is */
+    gap: 20px; /* Ruimte tussen de items */
+    justify-content: center; /* Centreert de items horizontaal */
   }
   
   .portrait-item {
-    max-width: 300px;
-    text-align: center;
+    flex: 1 1 calc(50% - 20px); /* Zorgt ervoor dat elk item 50% van de breedte inneemt, minus de gap */
+    max-width: 300px; /* Optioneel: Beperk de maximale breedte van elk item */
+    text-align: center; /* Centreert de tekst in elk item */
   }
   
   .image-wrapper {
