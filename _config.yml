@@ -1,0 +1,5 @@
+markdown: kramdown
+theme: minima
+title: WOMANCE EPK
+description: De officiële elektronische perskit van WOMANCE
+baseurl: "" # voor root deployment
