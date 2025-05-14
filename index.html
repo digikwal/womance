@@ -1,30 +1,45 @@
----
-layout: default
-title: WOMANCE
----
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOMANCE</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
 
-<link rel="stylesheet" href="/styles/style.css">
+<div id="header"></div>
 
-<div class="page-center">
-
+<main class="page-center">
   <h1>WOMANCE</h1>
   <h2>een bromance, maar beter</h2>
-
-  <div class="social-links">
-    🎧 <a href="https://open.spotify.com/artist/7cyNW498a5ZjNsYXC6TmeN?si=m0XT0mAwRNm7J9Ih9u-Svw">Spotify</a>
-    🎥 <a href="https://youtube.com/@wo_mance">YouTube</a>
-    📸 <a href="https://instagram.com/womance_">Instagram</a>
-    🎤 <a href="https://tiktok.com/womance_">TikTok</a>
-  </div>
 
   <div class="banner">
     <img src="/assets/press/womance-banner.png" alt="WOMANCE banner">
   </div>
 
-  <blockquote class="quote">“Wat als gevoel en maatschappijkritiek samen muziek maken?” — WOMANCE</blockquote>
+  <blockquote class="quote">“Wat als gevoel en maatschappijkritiek samen muziek maken?” </blockquote>
+
+  <div class="social-logo">
+    <a href="https://open.spotify.com/artist/7cyNW498a5ZjNsYXC6TmeN?si=m0XT0mAwRNm7J9Ih9u-Svw" target="_blank" title="Spotify">
+      <i class="fab fa-spotify"></i>
+    </a>
+    <a href="https://youtube.com/@wo_mance" target="_blank" title="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://instagram.com/womance_" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://tiktok.com/womance_" target="_blank" title="TikTok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+  </div>
 
   <div class="portrait-grid">
-
     <div class="portrait-item ayisha">
       <div class="image-wrapper">
         <img src="/assets/press/ayisha-portrait.jpg" alt="Ayisha">
@@ -51,19 +66,33 @@ title: WOMANCE
 
   <h3>📅 Press Kit</h3>
   <ul>
-    <li>🇣️ <a href="/docs/epk-nl.md">Bekijk de EPK (Nederlands)</a></li>
-    <li>🇬🇧 <a href="/docs/epk-en.md">View the EPK (English)</a></li>
+    <li>🇣️ <a href="/epk-nl.html">Bekijk de EPK (Nederlands)</a></li>
+    <li>🇬🇧 <a href="/epk-en.html">View the EPK (English)</a></li>
     <li>💾 <a href="/public/womance-epk.zip">Download EPK (ZIP)</a></li>
   </ul>
 
   <hr>
 
   <h3>📸 Persbeeld & Covers</h3>
-  <p>Zie <code>../assets/press</code></p>
+  <p>Zie <code>/assets/press</code></p>
 
   <hr>
 
   <h3>💬 Quotes & Pers</h3>
-  <p><a href="press-quotes.md">press-quotes.md</a></p>
+  <p><a href="/press-quotes.html">press-quotes.html</a></p>
+</main>
 
-</div>
+<div id="footer"></div>
+
+<script>
+  fetch("/partials/header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+
+  fetch("/partials/footer.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+
+</body>
+</html>

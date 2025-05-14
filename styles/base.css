@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #999;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #444;
+  }
+  

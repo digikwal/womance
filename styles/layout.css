@@ -1,0 +1,81 @@
+.page-center {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .site-header, .site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdf6f9;
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  }
+  
+  .site-header .logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    color: #111;
+  }
+  
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.9rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: #666;
+  }
+  
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .main-nav a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .main-nav a:hover {
+    color: #f64699;
+  }
+  
+  .social-nav a {
+    color: #000;
+    font-size: 1.5rem;
+    margin: 0 0.4rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  
+  .social-nav a:hover {
+    color: #f64699;
+    transform: scale(1.2);
+  }
+
+  .social-logo {
+    display: flex;
+    justify-content: center; /* Horizontaal centreren */
+    align-items: center; /* Verticaal centreren */
+    gap: 16px; /* Ruimte tussen de iconen */
+    margin: 20px 0; /* Optioneel: ruimte boven en onder de container */
+  }
+  
+  .social-logo a {
+    text-decoration: none; /* Verwijder onderlijnen van links */
+  }
+  
+  .social-logo i {
+    color: #000; /* Zwart maken */
+    font-size: 24px; /* Pas de grootte van de iconen aan */
+    transition: color 0.3s ease; /* Animatie bij hover */
+  }
+  
+  .social-logo a:hover i {
+    color: #f64699;
+  }
