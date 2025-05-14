@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const assetsDir = path.join(__dirname, "..", "assets");
-const outputFile = path.join(__dirname, "data", "assets.json");
+const outputFile = path.join(__dirname, "..", "data", "assets.json");
 
 const generateAssetsJson = () => {
   const categories = {};
