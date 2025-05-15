@@ -223,6 +223,31 @@ function showPreview(file, filesInDirectory) {
     }
   };
 
+  // Swipe-ondersteuning
+  let startX = 0;
+  let endX = 0;
+
+  overlay.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  overlay.addEventListener('touchmove', (e) => {
+    endX = e.touches[0].clientX;
+  });
+
+  overlay.addEventListener('touchend', () => {
+    const swipeDistance = endX - startX;
+    if (swipeDistance > 50 && currentIndex > 0) {
+      // Swipe naar rechts (vorige afbeelding)
+      currentIndex = (currentIndex - 1 + filesOnly.length) % filesOnly.length;
+      updatePreview(currentIndex);
+    } else if (swipeDistance < -50 && currentIndex < filesOnly.length - 1) {
+      // Swipe naar links (volgende afbeelding)
+      currentIndex = (currentIndex + 1) % filesOnly.length;
+      updatePreview(currentIndex);
+    }
+  });
+
   // Voeg de keydown event listener toe
   document.addEventListener('keydown', handleKeydown);
 
