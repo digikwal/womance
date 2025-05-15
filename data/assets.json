@@ -70,5 +70,29 @@
     "category": "press",
     "type": "image",
     "thumbnail": "/assets/press/womance-banner.png"
+  },
+  {
+    "name": "Womance - Bestie.mp3",
+    "category": "songs",
+    "type": "audio",
+    "thumbnail": null
+  },
+  {
+    "name": "Womance - Ik voel niks.mp3",
+    "category": "songs",
+    "type": "audio",
+    "thumbnail": null
+  },
+  {
+    "name": "Womance - Luxe problemen.mp3",
+    "category": "songs",
+    "type": "audio",
+    "thumbnail": null
+  },
+  {
+    "name": "Womance - Moeilijk.mp3",
+    "category": "songs",
+    "type": "audio",
+    "thumbnail": null
   }
 ]
