@@ -24,6 +24,36 @@
     "thumbnail": "/assets/covers/moeilijk-cover.jpg"
   },
   {
+    "name": "WOMANCE EPK.pdf",
+    "category": "docs",
+    "type": "other",
+    "thumbnail": null
+  },
+  {
+    "name": "bestie-lyrics.md",
+    "category": "docs",
+    "type": "other",
+    "thumbnail": null
+  },
+  {
+    "name": "ik-voel-niks-lyrics.md",
+    "category": "docs",
+    "type": "other",
+    "thumbnail": null
+  },
+  {
+    "name": "luxe-problemen-lyrics.md",
+    "category": "docs",
+    "type": "other",
+    "thumbnail": null
+  },
+  {
+    "name": "moeilijk-lyrics.md",
+    "category": "docs",
+    "type": "other",
+    "thumbnail": null
+  },
+  {
     "name": "moeilijk-poster.png",
     "category": "posters",
     "type": "image",
