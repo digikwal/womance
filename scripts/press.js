@@ -1,5 +1,4 @@
 const categoryButtons = document.querySelectorAll('.toggle-btn');
-const resetFiltersButton = document.getElementById('resetFilters');
 const searchInput = document.getElementById('searchInput');
 const fileBrowser = document.getElementById('fileBrowser');
 const previewContainer = document.getElementById('preview');
@@ -20,13 +19,6 @@ categoryButtons.forEach(button => {
     }
     updateFileBrowser();
   });
-});
-
-// Reset filters
-resetFiltersButton.addEventListener('click', () => {
-  activeCategories.clear();
-  categoryButtons.forEach(button => button.classList.remove('active'));
-  updateFileBrowser();
 });
 
 // Zoekfunctie
@@ -55,6 +47,13 @@ async function updateFileBrowser() {
   const query = searchInput.value.toLowerCase();
   const categories = Array.from(activeCategories);
 
+  // Controleer of er actieve categorieën of een zoekterm zijn
+  if (categories.length === 0 && query === '') {
+    fileBrowser.innerHTML = ''; // Leeg de file browser
+    previewContainer.innerHTML = ''; // Leeg de preview container
+    return; // Stop de functie
+  }
+
   // Haal bestanden op
   const allFiles = await getFiles();
   const filteredFiles = allFiles.filter(file => {
@@ -72,16 +71,72 @@ function renderFiles(files) {
   previewContainer.innerHTML = '';
 
   files.forEach(file => {
-    const fileElement = document.createElement('div');
-    fileElement.textContent = file.name;
-    fileBrowser.appendChild(fileElement);
+    if (file.type === 'image' && file.thumbnail) {
+      // Maak een container voor de thumbnail
+      const thumbnailContainer = document.createElement('div');
+      thumbnailContainer.classList.add('thumbnail-container');
 
-    if (file.type === 'image') {
+      // Voeg de thumbnail toe
       const img = document.createElement('img');
       img.src = file.thumbnail;
-      previewContainer.appendChild(img);
+      img.alt = file.name;
+      img.classList.add('thumbnail');
+      thumbnailContainer.appendChild(img);
+
+      // Voeg een klik-event toe om de preview te vergroten
+      img.addEventListener('click', () => {
+        showPreview(file);
+      });
+
+      fileBrowser.appendChild(thumbnailContainer);
     }
   });
+}
+
+// Toon een vergrote preview met downloadknop
+function showPreview(file) {
+  // Leeg de preview container
+  previewContainer.innerHTML = '';
+
+  // Maak een overlay voor de preview
+  const overlay = document.createElement('div');
+  overlay.classList.add('preview-overlay');
+
+  // Voeg de vergrote afbeelding toe
+  const img = document.createElement('img');
+  img.src = file.thumbnail;
+  img.alt = file.name;
+  img.classList.add('preview-image');
+  overlay.appendChild(img);
+
+  // Controleer of de afbeelding correct geladen is
+  img.onload = () => {
+    console.log('Afbeelding geladen:', file.name);
+  };
+
+  img.onerror = () => {
+    console.error('Fout bij het laden van de afbeelding:', file.name);
+  };
+
+  // Voeg een downloadknop toe
+  const downloadButton = document.createElement('a');
+  downloadButton.href = file.thumbnail; // Gebruik de thumbnail-URL als downloadlink
+  downloadButton.download = file.name;
+  downloadButton.textContent = 'Download';
+  downloadButton.classList.add('download-button');
+  overlay.appendChild(downloadButton);
+
+  // Voeg een sluitknop toe
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Sluiten';
+  closeButton.classList.add('close-button');
+  closeButton.addEventListener('click', () => {
+    previewContainer.innerHTML = ''; // Sluit de preview
+  });
+  overlay.appendChild(closeButton);
+
+  // Voeg de overlay toe aan de preview container
+  previewContainer.appendChild(overlay);
 }
 
 // Initialiseer
