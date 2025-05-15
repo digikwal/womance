@@ -1,60 +1,54 @@
-.player-section {
-  display: flex;
-  flex-wrap: wrap;
+.media-grid {
+  display: grid;
+  grid-template-areas:
+    "youtube youtube"
+    "spotify soundcloud";
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 2rem;
-  padding: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.player-section iframe {
-  width: 45%;
-  min-width: 300px;
+.media-grid iframe {
+  width: 100%;
   height: 352px;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+  border: none;
 }
 
-.youtube-section {
-  margin-top: 2rem;
+.media-grid .youtube {
+  grid-area: youtube;
 }
 
-.youtube-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.media-grid .spotify {
+  grid-area: spotify;
 }
 
-/* Alleen .player-section aanpassen op mobiel */
+.media-grid .soundcloud {
+  grid-area: soundcloud;
+}
+
+/* 📱 Mobiel layout */
 @media (max-width: 768px) {
-  .player-section {
-    flex-direction: column;
-    align-items: center;
+  .media-grid {
+    grid-template-areas:
+      "youtube"
+      "spotify"
+      "soundcloud";
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
-  .player-section iframe {
-    width: 100%;
+  .media-grid iframe {
     max-width: 400px;
-  }
-}
-
-/* YouTube-grid onder elkaar zetten op mobiel */
-@media (max-width: 768px) {
-  .youtube-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .youtube-grid iframe {
     width: 100%;
-    max-width: 400px;
-    height: 352px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
   }
+  
+  .media-grid .spotify {
+    min-height: 152px; /* genoeg voor compacte weergave */
+    height: auto;
+  }
+  
 }
