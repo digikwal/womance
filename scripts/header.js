@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const hamburgerMenu = document.querySelector('.hamburger-menu');
             const mobileNav = document.querySelector('.mobile-nav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
 
             // Zorg dat het mobiele menu standaard verborgen is
             if (!mobileNav.classList.contains('hidden')) {
@@ -16,6 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburgerMenu.addEventListener('click', () => {
                 mobileNav.classList.toggle('hidden');
                 mobileNav.classList.toggle('open');
+            });
+
+            // Sluit het mobiele menu bij klikken op een menu-item
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.add('hidden');
+                    mobileNav.classList.remove('open');
+                });
             });
         });
 });
