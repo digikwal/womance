@@ -1,9 +1,9 @@
 /* Finder-container */
 .finder {
   display: grid;
-  grid-template-columns: 250px 1fr 1fr; /* Drie kolommen: sidebar, content, subcontent */
+  grid-template-columns: 200px 1fr 1fr; /* Drie kolommen: sidebar, content, subcontent */
   grid-template-rows: auto 1fr; /* Zoekbalk bovenaan, inhoud eronder */
-  height: 80vh;
+  height: 60vh;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -34,8 +34,8 @@
 }
 
 .finder-search:focus {
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-  border-color: #007bff;
+  box-shadow: 0 0 8px var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 /* Algemene styling voor alle kolommen */
@@ -154,6 +154,13 @@
   z-index: 1000;
 }
 
+.preview-overlay .button-container {
+  display: flex;
+  gap: 10px; /* Ruimte tussen de knoppen */
+  justify-content: center; /* Knoppen centreren */
+  margin-top: 20px; /* Optionele marge boven de knoppen */
+}
+
 .preview-image {
   max-width: 80%;
   max-height: 80%;
@@ -162,13 +169,20 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Container voor de knoppen in de preview-overlay */
+.button-container {
+  display: flex;
+  gap: 10px; /* Ruimte tussen de knoppen */
+  justify-content: center; /* Knoppen centreren */
+  margin-top: 20px; /* Optionele marge boven de knoppen */
+}
+
 .download-button {
   background: #007bff;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
-  margin-right: 10px;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
@@ -191,4 +205,45 @@
 
 .close-button:hover {
   background: #a71d2a;
+}
+
+/* Pijlen voor navigatie */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Pijlen voor navigatie */
+.arrow i {
+  font-size: 1.5rem; /* Zorg ervoor dat de iconen goed zichtbaar zijn */
+  color: white;
+}
+
+.arrow:hover i {
+  color: #fff; /* Optionele hoverkleur */
 }

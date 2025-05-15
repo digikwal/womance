@@ -101,7 +101,7 @@ function renderFiles(items, target = fileBrowser, parentItems = null, updatePath
       });
     } else {
       itemElement.addEventListener('click', () => {
-        showPreview(item);
+        showPreview(item, items);
       });
     }
 
@@ -133,40 +133,100 @@ async function updateFileBrowser() {
   subFileBrowser.innerHTML = '';
 }
 
-// Toon een preview van een bestand
-function showPreview(file) {
+function showPreview(file, filesInDirectory) {
   previewContainer.innerHTML = '';
 
   const overlay = document.createElement('div');
   overlay.classList.add('preview-overlay');
 
-  if (file.type === 'image') {
-    const img = document.createElement('img');
-    img.src = file.thumbnail;
-    img.alt = file.name;
-    img.classList.add('preview-image');
-    overlay.appendChild(img);
-  } else {
-    const message = document.createElement('p');
-    message.textContent = `Voorbeeld niet beschikbaar voor ${file.type}`;
-    overlay.appendChild(message);
+  // Filter alleen bestanden (geen directories)
+  const filesOnly = filesInDirectory.filter(f => f.type !== 'directory');
+
+  let currentIndex = filesOnly.findIndex(f => f.name === file.name);
+  if (currentIndex === -1) {
+    console.error('Bestand niet gevonden in directory:', file.name);
+    return;
   }
 
-  const downloadButton = document.createElement('a');
-  downloadButton.href = `/assets/${file.category}/${file.name}`;
-  downloadButton.download = file.name;
-  downloadButton.textContent = 'Download';
-  downloadButton.classList.add('download-button');
-  overlay.appendChild(downloadButton);
+  const updatePreview = (index) => {
+    const currentFile = filesOnly[index];
+    overlay.innerHTML = ''; // Reset overlay content
 
-  const closeButton = document.createElement('button');
-  closeButton.textContent = 'Sluiten';
-  closeButton.classList.add('close-button');
-  closeButton.addEventListener('click', () => {
-    previewContainer.innerHTML = '';
-  });
-  overlay.appendChild(closeButton);
+    if (currentFile.type === 'image') {
+      const img = document.createElement('img');
+      img.src = currentFile.thumbnail;
+      img.alt = currentFile.name;
+      img.classList.add('preview-image');
+      overlay.appendChild(img);
+    } else {
+      const message = document.createElement('p');
+      message.textContent = `Voorbeeld niet beschikbaar voor ${currentFile.type}`;
+      overlay.appendChild(message);
+    }
 
+    // Voeg navigatiepijlen toe
+    if (index > 0) {
+      const leftArrow = document.createElement('button');
+      leftArrow.classList.add('arrow', 'arrow-left');
+      leftArrow.innerHTML = '<i class="fas fa-arrow-left"></i>'; // Font Awesome-pijl
+      leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + filesOnly.length) % filesOnly.length;
+        updatePreview(currentIndex);
+      });
+      overlay.appendChild(leftArrow);
+    }
+
+    if (index < filesOnly.length - 1) {
+      const rightArrow = document.createElement('button');
+      rightArrow.classList.add('arrow', 'arrow-right');
+      rightArrow.innerHTML = '<i class="fas fa-arrow-right"></i>'; // Font Awesome-pijl
+      rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % filesOnly.length;
+        updatePreview(currentIndex);
+      });
+      overlay.appendChild(rightArrow);
+    }
+
+    // Voeg knoppencontainer toe
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+
+    const downloadButton = document.createElement('a');
+    downloadButton.href = `/assets/${currentFile.category}/${currentFile.name}`;
+    downloadButton.download = currentFile.name;
+    downloadButton.textContent = 'Download';
+    downloadButton.classList.add('download-button');
+    buttonContainer.appendChild(downloadButton);
+
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Sluiten';
+    closeButton.classList.add('close-button');
+    closeButton.addEventListener('click', () => {
+      previewContainer.innerHTML = '';
+      document.removeEventListener('keydown', handleKeydown); // Verwijder de keydown listener bij sluiten
+    });
+    buttonContainer.appendChild(closeButton);
+
+    overlay.appendChild(buttonContainer);
+  };
+
+  const handleKeydown = (event) => {
+    if (event.key === 'ArrowLeft' && currentIndex > 0) {
+      currentIndex = (currentIndex - 1 + filesOnly.length) % filesOnly.length;
+      updatePreview(currentIndex);
+    } else if (event.key === 'ArrowRight' && currentIndex < filesOnly.length - 1) {
+      currentIndex = (currentIndex + 1) % filesOnly.length;
+      updatePreview(currentIndex);
+    } else if (event.key === 'Escape') {
+      previewContainer.innerHTML = '';
+      document.removeEventListener('keydown', handleKeydown); // Verwijder de keydown listener bij sluiten
+    }
+  };
+
+  // Voeg de keydown event listener toe
+  document.addEventListener('keydown', handleKeydown);
+
+  updatePreview(currentIndex);
   previewContainer.appendChild(overlay);
 }
 
