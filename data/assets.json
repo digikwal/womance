@@ -1,57 +1,57 @@
 [
   {
-    "name": "bestie-cover.jpg",
+    "name": "bestie-covers.jpg",
     "category": "covers",
     "type": "image",
-    "thumbnail": "/assets/covers/bestie-cover.jpg"
+    "thumbnail": "/assets/covers/bestie-covers.jpg"
   },
   {
-    "name": "ik-voel-niks-cover.jpg",
+    "name": "ik-voel-niks-covers.jpg",
     "category": "covers",
     "type": "image",
-    "thumbnail": "/assets/covers/ik-voel-niks-cover.jpg"
+    "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
   },
   {
-    "name": "luxe-problemen-cover.jpg",
+    "name": "luxe-problemen-covers.jpg",
     "category": "covers",
     "type": "image",
-    "thumbnail": "/assets/covers/luxe-problemen-cover.jpg"
+    "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
   },
   {
-    "name": "moeilijk-cover.jpg",
+    "name": "moeilijk-covers.jpg",
     "category": "covers",
     "type": "image",
-    "thumbnail": "/assets/covers/moeilijk-cover.jpg"
+    "thumbnail": "/assets/covers/moeilijk-covers.jpg"
   },
   {
     "name": "WOMANCE EPK.pdf",
     "category": "docs",
     "type": "other",
-    "thumbnail": null
+    "thumbnail": "fa-smile"
   },
   {
     "name": "bestie-lyrics.md",
-    "category": "docs",
+    "category": "lyrics",
     "type": "other",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/bestie-covers.jpg"
   },
   {
     "name": "ik-voel-niks-lyrics.md",
-    "category": "docs",
+    "category": "lyrics",
     "type": "other",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
   },
   {
     "name": "luxe-problemen-lyrics.md",
-    "category": "docs",
+    "category": "lyrics",
     "type": "other",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
   },
   {
     "name": "moeilijk-lyrics.md",
-    "category": "docs",
+    "category": "lyrics",
     "type": "other",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/moeilijk-covers.jpg"
   },
   {
     "name": "moeilijk-poster.png",
@@ -102,27 +102,27 @@
     "thumbnail": "/assets/press/womance-banner.png"
   },
   {
-    "name": "Womance - Bestie.mp3",
+    "name": "bestie-songs.mp3",
     "category": "songs",
     "type": "audio",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/bestie-covers.jpg"
   },
   {
-    "name": "Womance - Ik voel niks.mp3",
+    "name": "ik-voel-niks-songs.mp3",
     "category": "songs",
     "type": "audio",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
   },
   {
-    "name": "Womance - Luxe problemen.mp3",
+    "name": "luxe-problemen-songs.mp3",
     "category": "songs",
     "type": "audio",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
   },
   {
-    "name": "Womance - Moeilijk.mp3",
+    "name": "moeilijk-songs.mp3",
     "category": "songs",
     "type": "audio",
-    "thumbnail": null
+    "thumbnail": "/assets/covers/moeilijk-covers.jpg"
   }
 ]
