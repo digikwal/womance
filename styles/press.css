@@ -81,6 +81,16 @@
   color: var(--text-color);
 }
 
+.finder-content .file i,
+.finder-content .directory i {
+  margin-right: 0.5rem;
+  color: #666;
+}
+
+.finder-content .directory i {
+  color: var(--primary-color);
+}
+
 /* Zoekbalk-styling */
 #searchInput {
   width: calc(100% - 2rem);

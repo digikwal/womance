@@ -62,7 +62,7 @@ function renderFiles(items) {
   if (currentPath.length > 0) {
     const backButton = document.createElement('div');
     backButton.classList.add('directory');
-    backButton.textContent = '⬅️ Terug';
+    backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Terug';
     backButton.addEventListener('click', () => {
       currentPath.pop();
       updateFileBrowser();
@@ -70,10 +70,13 @@ function renderFiles(items) {
     fileBrowser.appendChild(backButton);
   }
 
+  // Sorteer items: directories eerst
+  items.sort((a, b) => (a.type === 'directory' ? -1 : 1));
+
   items.forEach((item) => {
     const itemElement = document.createElement('div');
     itemElement.classList.add(item.type === 'directory' ? 'directory' : 'file');
-    itemElement.textContent = item.name;
+    itemElement.innerHTML = `<i class="fas ${item.type === 'directory' ? 'fa-folder' : 'fa-file'}"></i> ${item.name}`;
 
     if (item.type === 'directory') {
       itemElement.addEventListener('click', () => {
