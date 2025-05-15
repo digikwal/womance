@@ -16,26 +16,29 @@
 <div id="header"></div>
 
 <main class="page-center">
-  <h1>Womance Approved</h1>
-  <p class="tagline">Zoek, blader en download.</p>
+  <header class="site-banner">
+    <div class="text">PRESS</div>
+    <div class="tagline">Zoek, blader en download.</div>
+  </header>
 
-  <input type="text" id="searchInput" placeholder="Zoek in alle categorieën...">
+  <input type="text" id="searchInput" placeholder="Type hier om te zoeken...">
 
-  <div id="categoryButtons">
-    <button data-category="acapellas" class="toggle-btn">🎙️ Acapellas</button>
-    <button data-category="covers" class="toggle-btn">🖼️ Covers</button>
-    <button data-category="docs" class="toggle-btn">📄 Docs</button>
-    <button data-category="instrumentals" class="toggle-btn">🎧 Instrumentals</button>
-    <button data-category="lyrics" class="toggle-btn">🎤 Lyrics</button>
-    <button data-category="posters" class="toggle-btn">🪧 Posters</button>
-    <button data-category="press" class="toggle-btn">📰 Press</button>
-    <button data-category="reels" class="toggle-btn">🎞️ Reels</button>
-    <button data-category="songs" class="toggle-btn">💿 Songs</button>
+  <div class="finder">
+    <div id="categoryList" class="finder-categories">
+      <div data-category="acapellas" class="finder-item">🎙️ Acapellas</div>
+      <div data-category="covers" class="finder-item">🖼️ Covers</div>
+      <div data-category="docs" class="finder-item">📄 Docs</div>
+      <div data-category="instrumentals" class="finder-item">🎧 Instrumentals</div>
+      <div data-category="lyrics" class="finder-item">🎤 Lyrics</div>
+      <div data-category="posters" class="finder-item">🪧 Posters</div>
+      <div data-category="press" class="finder-item">📰 Press</div>
+      <div data-category="reels" class="finder-item">🎞️ Reels</div>
+      <div data-category="songs" class="finder-item">💿 Songs</div>
+    </div>
+    <div id="fileBrowser" class="finder-content"></div>
   </div>
 
-  <div id="fileBrowser" class="file-browser"></div>
   <div id="preview" class="preview-container"></div>
-
 </main>
 
 <div id="footer"></div>

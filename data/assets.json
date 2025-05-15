@@ -102,12 +102,6 @@
     "thumbnail": "/assets/press/logo.png"
   },
   {
-    "name": "womance-banner.png",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/womance-banner.png"
-  },
-  {
     "name": "bestie-songs.mp3",
     "category": "songs",
     "type": "audio",

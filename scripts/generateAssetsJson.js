@@ -5,19 +5,24 @@ const assetsDir = path.join(__dirname, "..", "assets");
 const outputFile = path.join(__dirname, "..", "data", "assets.json");
 
 const generateAssetsJson = () => {
-  const assets = [];
+  const buildDirectoryStructure = (dirPath) => {
+    const items = fs.readdirSync(dirPath);
+    const structure = [];
 
-  if (!fs.existsSync(assetsDir)) {
-    console.error("De assets-map bestaat niet.");
-    process.exit(1);
-  }
+    items.forEach((item) => {
+      const itemPath = path.join(dirPath, item);
+      const stats = fs.lstatSync(itemPath);
 
-  fs.readdirSync(assetsDir).forEach(folder => {
-    const folderPath = path.join(assetsDir, folder);
-    if (fs.lstatSync(folderPath).isDirectory()) {
-      fs.readdirSync(folderPath).forEach(file => {
-        const filePath = path.join(folderPath, file);
-        const fileExtension = path.extname(file).toLowerCase();
+      if (stats.isDirectory()) {
+        // Recursief directories verwerken
+        structure.push({
+          name: item,
+          type: "directory",
+          children: buildDirectoryStructure(itemPath),
+        });
+      } else {
+        // Bestanden verwerken
+        const fileExtension = path.extname(item).toLowerCase();
         let fileType = "other";
 
         // Bepaal het bestandstype
@@ -29,32 +34,48 @@ const generateAssetsJson = () => {
           fileType = "video";
         }
 
-        // Voeg het bestand toe aan de assets-array
-        assets.push({
-          name: file,
-          category: folder,
+        structure.push({
+          name: item,
           type: fileType,
-          thumbnail: fileType === "image" ? `/assets/${folder}/${file}` : null
+          thumbnail: fileType === "image" ? `/assets/${path.relative(assetsDir, itemPath).replace(/\\/g, "/")}` : null,
         });
-      });
-    }
-  });
-
-  // Controleer op ontbrekende thumbnails en voeg covers of een standaard-smiley toe
-  assets.forEach(asset => {
-    if (!asset.thumbnail && asset.category !== "covers") {
-      const baseTitle = asset.name.split('-')[0];
-      const matchingCover = assets.find(
-        a => a.category === "covers" && a.name.startsWith(baseTitle)
-      );
-      if (matchingCover) {
-        asset.thumbnail = matchingCover.thumbnail;
-      } else {
-        // Gebruik een standaard Font Awesome-smiley als fallback
-        asset.thumbnail = "fa-smile"; // Dit kan in de frontend worden geïnterpreteerd als een Font Awesome-icoon
       }
-    }
-  });
+    });
+
+    return structure;
+  };
+
+  const assignThumbnails = (directory) => {
+    directory.forEach((item) => {
+      if (item.type === "directory") {
+        // Recursief thumbnails toewijzen aan subdirectories
+        assignThumbnails(item.children);
+      } else if (!item.thumbnail) {
+        // Zoek een bijpassende cover of gebruik een fallback
+        const baseTitle = item.name.split("-")[0];
+        const matchingCover = directory.find(
+          (child) => child.type === "image" && child.name.startsWith(baseTitle)
+        );
+
+        if (matchingCover) {
+          item.thumbnail = matchingCover.thumbnail;
+        } else {
+          // Gebruik een standaard Font Awesome-smiley als fallback
+          item.thumbnail = "fa-smile"; // Dit kan in de frontend worden geïnterpreteerd als een Font Awesome-icoon
+        }
+      }
+    });
+  };
+
+  if (!fs.existsSync(assetsDir)) {
+    console.error("De assets-map bestaat niet.");
+    process.exit(1);
+  }
+
+  const assets = buildDirectoryStructure(assetsDir);
+
+  // Thumbnails toewijzen
+  assignThumbnails(assets);
 
   fs.writeFileSync(outputFile, JSON.stringify(assets, null, 2));
   console.log(`assets.json gegenereerd in ${outputFile}`);
