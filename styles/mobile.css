@@ -44,14 +44,18 @@
 /* Toon hamburger menu op kleine schermen */
 @media (max-width: 768px) {
   .hamburger-menu {
-    display: block;
+    display: block; /* Toon het hamburger menu */
   }
 
   .main-nav {
-    display: none; /* Verberg de standaard navigatie */
+    display: none; /* Verberg het normale menu */
   }
 
   .mobile-nav {
-    display: flex;
+    display: none; /* Zorg dat het mobiele menu standaard verborgen is */
+  }
+
+  .mobile-nav.open {
+    display: flex; /* Toon het mobiele menu wanneer het geopend is */
   }
 }
