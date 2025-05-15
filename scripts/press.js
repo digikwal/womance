@@ -262,3 +262,19 @@ searchInput.addEventListener('input', async (e) => {
 
 // Initialiseer
 updateFileBrowser();
+
+function checkOrientationSupport() {
+  const isMobile = window.innerWidth < 768;
+  const isPortrait = window.innerHeight > window.innerWidth;
+  const overlay = document.getElementById('rotateOverlay');
+
+  if (isMobile && isPortrait) {
+    overlay.classList.add('visible');
+  } else {
+    overlay.classList.remove('visible');
+  }
+}
+
+window.addEventListener('resize', checkOrientationSupport);
+window.addEventListener('orientationchange', checkOrientationSupport);
+document.addEventListener('DOMContentLoaded', checkOrientationSupport);

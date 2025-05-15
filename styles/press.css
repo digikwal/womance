@@ -247,3 +247,72 @@
 .arrow:hover i {
   color: #fff; /* Optionele hoverkleur */
 }
+
+.rotate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  z-index: 2000;
+  padding: 2rem;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.rotate-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rotate-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 90vw;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.rotate-icon {
+  font-size: 3rem;
+  animation: rotate-fade 2s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes rotate-fade {
+  0% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: rotate(180deg) translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateY(0);
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .rotate-overlay {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .rotate-icon {
+    font-size: 2.5rem;
+  }
+}
