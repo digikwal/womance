@@ -96,6 +96,12 @@
     "thumbnail": "/assets/press/duo-portrait.png"
   },
   {
+    "name": "logo.png",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/logo.png"
+  },
+  {
     "name": "womance-banner.png",
     "category": "press",
     "type": "image",
