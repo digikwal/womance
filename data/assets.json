@@ -1,20 +1,74 @@
-{
-  "covers": [
-    "bestie-cover.jpg",
-    "ik-voel-niks-cover.jpg",
-    "luxe-problemen-cover.jpg",
-    "moeilijk-cover.jpg"
-  ],
-  "posters": [
-    "moeilijk-poster.png"
-  ],
-  "press": [
-    "ayisha-1-portrait.jpg",
-    "ayisha-2-portrait.jpg",
-    "ayisha-portrait.jpg",
-    "betty-1-portrait.jpg",
-    "betty-portrait.jpg",
-    "duo-portrait.png",
-    "womance-banner.png"
-  ]
-}
+[
+  {
+    "name": "bestie-cover.jpg",
+    "category": "covers",
+    "type": "image",
+    "thumbnail": "/assets/covers/bestie-cover.jpg"
+  },
+  {
+    "name": "ik-voel-niks-cover.jpg",
+    "category": "covers",
+    "type": "image",
+    "thumbnail": "/assets/covers/ik-voel-niks-cover.jpg"
+  },
+  {
+    "name": "luxe-problemen-cover.jpg",
+    "category": "covers",
+    "type": "image",
+    "thumbnail": "/assets/covers/luxe-problemen-cover.jpg"
+  },
+  {
+    "name": "moeilijk-cover.jpg",
+    "category": "covers",
+    "type": "image",
+    "thumbnail": "/assets/covers/moeilijk-cover.jpg"
+  },
+  {
+    "name": "moeilijk-poster.png",
+    "category": "posters",
+    "type": "image",
+    "thumbnail": "/assets/posters/moeilijk-poster.png"
+  },
+  {
+    "name": "ayisha-1-portrait.jpg",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/ayisha-1-portrait.jpg"
+  },
+  {
+    "name": "ayisha-2-portrait.jpg",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/ayisha-2-portrait.jpg"
+  },
+  {
+    "name": "ayisha-portrait.jpg",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/ayisha-portrait.jpg"
+  },
+  {
+    "name": "betty-1-portrait.jpg",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/betty-1-portrait.jpg"
+  },
+  {
+    "name": "betty-portrait.jpg",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/betty-portrait.jpg"
+  },
+  {
+    "name": "duo-portrait.png",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/duo-portrait.png"
+  },
+  {
+    "name": "womance-banner.png",
+    "category": "press",
+    "type": "image",
+    "thumbnail": "/assets/press/womance-banner.png"
+  }
+]
