@@ -21,9 +21,10 @@
     <div class="tagline">Zoek, blader en download.</div>
   </header>
 
-  <input type="text" id="searchInput" placeholder="Type hier om te zoeken...">
-
   <div class="finder">
+    <div class="finder-header">
+      <input type="text" id="searchInput" placeholder="Zoeken..." class="finder-search">
+    </div>
     <div id="categoryList" class="finder-categories">
       <div data-category="acapellas" class="finder-item">🎙️ Acapellas</div>
       <div data-category="covers" class="finder-item">🖼️ Covers</div>
@@ -36,6 +37,7 @@
       <div data-category="songs" class="finder-item">💿 Songs</div>
     </div>
     <div id="fileBrowser" class="finder-content"></div>
+    <div id="subFileBrowser" class="finder-content"></div>
   </div>
 
   <div id="preview" class="preview-container"></div>

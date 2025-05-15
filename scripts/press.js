@@ -1,7 +1,9 @@
 const fileBrowser = document.getElementById('fileBrowser');
+const subFileBrowser = document.getElementById('subFileBrowser');
 const previewContainer = document.getElementById('preview');
 const categoryList = document.getElementById('categoryList');
 const searchInput = document.getElementById('searchInput');
+
 let currentPath = []; // Houdt de huidige directory bij
 let files = []; // Cache voor bestanden
 
@@ -21,14 +23,6 @@ async function getFiles() {
   return files;
 }
 
-// Update file browser
-async function updateFileBrowser() {
-  const allFiles = await getFiles();
-  const currentDirectory = getCurrentDirectory(allFiles);
-
-  renderFiles(currentDirectory);
-}
-
 // Haal de huidige directory op
 function getCurrentDirectory(allFiles) {
   let directory = allFiles;
@@ -45,43 +39,65 @@ function getCurrentDirectory(allFiles) {
   return directory;
 }
 
-// Render bestanden en directories
-function renderFiles(items) {
-  fileBrowser.innerHTML = '';
+// Sorteer items: directories bovenaan, bestanden eronder
+function sortItems(items) {
+  return items.sort((a, b) => {
+    if (a.type === 'directory' && b.type !== 'directory') return -1;
+    if (a.type !== 'directory' && b.type === 'directory') return 1;
+    return a.name.localeCompare(b.name); // Sorteer alfabetisch binnen dezelfde type
+  });
+}
 
-  // Toon een bericht als er geen categorie is geselecteerd
-  if (currentPath.length === 0) {
+// Render bestanden en directories
+function renderFiles(items, target = fileBrowser, parentItems = null, updatePath = false) {
+  target.innerHTML = '';
+
+  // Toon een melding als er geen categorie is geselecteerd
+  if (currentPath.length === 0 && target === fileBrowser) {
     const message = document.createElement('div');
     message.classList.add('no-category-message');
     message.textContent = 'Selecteer een categorie aan de linkerkant om te beginnen met bladeren.';
-    fileBrowser.appendChild(message);
+    target.appendChild(message);
     return;
   }
 
   // Voeg een "terug"-knop toe als we niet in de root zijn
-  if (currentPath.length > 0) {
+  if (currentPath.length > 0 && target === fileBrowser) {
     const backButton = document.createElement('div');
     backButton.classList.add('directory');
     backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Terug';
     backButton.addEventListener('click', () => {
-      currentPath.pop();
+      if (updatePath) {
+        currentPath.pop(); // Ga één niveau omhoog
+      }
       updateFileBrowser();
     });
-    fileBrowser.appendChild(backButton);
+    target.appendChild(backButton);
   }
 
-  // Sorteer items: directories eerst
-  items.sort((a, b) => (a.type === 'directory' ? -1 : 1));
+  // Sorteer items
+  const sortedItems = sortItems(items);
 
-  items.forEach((item) => {
+  // Render elk item
+  sortedItems.forEach((item) => {
     const itemElement = document.createElement('div');
     itemElement.classList.add(item.type === 'directory' ? 'directory' : 'file');
     itemElement.innerHTML = `<i class="fas ${item.type === 'directory' ? 'fa-folder' : 'fa-file'}"></i> ${item.name}`;
 
     if (item.type === 'directory') {
       itemElement.addEventListener('click', () => {
-        currentPath.push(item.name);
-        updateFileBrowser();
+        if (target === fileBrowser) {
+          // Update de tweede kolom en toon de inhoud in de derde kolom
+          renderFiles(item.children || [], subFileBrowser, items, false);
+          subFileBrowser.style.display = 'block';
+
+          // Highlight de geopende map in kolom 2
+          document.querySelectorAll('#fileBrowser .directory').forEach((dir) => dir.classList.remove('active'));
+          itemElement.classList.add('active');
+        } else if (target === subFileBrowser) {
+          // Update de derde kolom en blijf in dezelfde bovenliggende map
+          renderFiles(item.children || [], subFileBrowser, items, false);
+        }
       });
     } else {
       itemElement.addEventListener('click', () => {
@@ -89,19 +105,33 @@ function renderFiles(items) {
       });
     }
 
-    fileBrowser.appendChild(itemElement);
+    target.appendChild(itemElement);
   });
+
+  // Als de derde kolom wordt weergegeven, toon de bovenliggende map in de tweede kolom
+  if (parentItems && target === subFileBrowser) {
+    renderFiles(parentItems, fileBrowser, null, false);
+  }
 }
 
-// Zoekfunctionaliteit
-searchInput.addEventListener('input', async (e) => {
-  const query = e.target.value.toLowerCase();
+// Update de file browser
+async function updateFileBrowser() {
   const allFiles = await getFiles();
-  const filteredFiles = allFiles.filter((file) =>
-    file.name.toLowerCase().includes(query)
-  );
-  renderFiles(filteredFiles);
-});
+  const currentDirectory = getCurrentDirectory(allFiles);
+
+  // Controleer of er een categorie is geselecteerd
+  if (currentPath.length === 0) {
+    renderFiles([], fileBrowser); // Toon de melding in de tweede kolom
+    subFileBrowser.innerHTML = ''; // Reset alleen de inhoud van de derde kolom
+    return;
+  }
+
+  // Render de huidige directory in de tweede kolom
+  renderFiles(currentDirectory, fileBrowser);
+
+  // Reset alleen de inhoud van de derde kolom
+  subFileBrowser.innerHTML = '';
+}
 
 // Toon een preview van een bestand
 function showPreview(file) {
@@ -151,6 +181,23 @@ categoryList.addEventListener('click', (e) => {
     document.querySelectorAll('.finder-item').forEach((item) => item.classList.remove('active'));
     e.target.classList.add('active');
   }
+});
+
+// Zoekfunctionaliteit
+searchInput.addEventListener('input', async (e) => {
+  const query = e.target.value.toLowerCase();
+  const allFiles = await getFiles();
+
+  // Filter bestanden op basis van de zoekopdracht
+  const filteredFiles = allFiles.filter((file) =>
+    file.name.toLowerCase().includes(query)
+  );
+
+  // Toon de gefilterde bestanden in de tweede kolom
+  renderFiles(filteredFiles, fileBrowser);
+
+  // Reset alleen de inhoud van de derde kolom
+  subFileBrowser.innerHTML = '';
 });
 
 // Initialiseer

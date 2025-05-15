@@ -1,7 +1,9 @@
 /* Finder-container */
 .finder {
-  display: flex;
-  height: 80vh; /* Zorgt ervoor dat de Finder een consistente hoogte heeft */
+  display: grid;
+  grid-template-columns: 250px 1fr 1fr; /* Drie kolommen: sidebar, content, subcontent */
+  grid-template-rows: auto 1fr; /* Zoekbalk bovenaan, inhoud eronder */
+  height: 80vh;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -9,17 +11,73 @@
   background-color: #fff;
 }
 
-/* Sidebar voor categorieën */
-.finder-categories {
-  width: 250px;
-  background-color: #f8f8f8;
-  border-right: 1px solid #ddd;
+/* Zoekbalk in Finder-header */
+.finder-header {
+  grid-column: 1 / 4; /* Laat de zoekbalk over alle drie de kolommen lopen */
+  grid-row: 1; /* Plaats de zoekbalk in de eerste rij */
   display: flex;
-  flex-direction: column;
-  padding: 1rem 0;
-  overflow-y: auto;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  z-index: 10; /* Zorg ervoor dat de zoekbalk boven andere elementen ligt */
 }
 
+.finder-search {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.finder-search:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+/* Algemene styling voor alle kolommen */
+.finder > div {
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+  border-left: 1px solid #ddd; /* Scheidingslijn tussen kolommen */
+}
+
+/* Sidebar (eerste kolom) */
+.finder-categories {
+  grid-column: 1; /* Eerste kolom */
+  grid-row: 2; /* Onder de zoekbalk */
+  border-left: none; /* Geen scheidingslijn aan de linkerkant */
+  border-right: 1px solid #ddd; /* Scheidingslijn rechts */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bestanden (tweede kolom) */
+#fileBrowser {
+  grid-column: 2; /* Tweede kolom */
+  grid-row: 2; /* Onder de zoekbalk */
+}
+
+/* Highlight voor actieve map in kolom 2 */
+#fileBrowser .directory.active {
+  background-color: #e8f4ff; /* Lichtblauwe achtergrond */
+  border-left: 4px solid var(--primary-color); /* Accentkleur aan de linkerkant */
+  color: var(--primary-color); /* Tekstkleur aanpassen */
+}
+
+/* Subbestanden (derde kolom) */
+#subFileBrowser {
+  grid-column: 3; /* Derde kolom */
+  grid-row: 2; /* Onder de zoekbalk */
+  border-radius: 0 8px 8px 0; /* Alleen afgeronde hoeken aan de rechterkant */
+}
+
+/* Finder-items (algemeen) */
 .finder-item {
   padding: 0.75rem 1rem;
   cursor: pointer;
@@ -44,16 +102,6 @@
 }
 
 /* Bestanden en directories */
-.finder-content {
-  flex: 1;
-  padding: 1rem;
-  display: list-item;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  overflow-y: auto;
-  background-color: #f8f8f8;
-}
-
 .finder-content .file,
 .finder-content .directory {
   padding: 0.2rem 0.5rem;
@@ -89,17 +137,6 @@
 
 .finder-content .directory i {
   color: var(--primary-color);
-}
-
-/* Zoekbalk-styling */
-#searchInput {
-  width: calc(100% - 2rem);
-  padding: 1rem;
-  margin: 1rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
 }
 
 /* Preview-overlay */
