@@ -17,7 +17,17 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Responsive layout for mobile */
+.youtube-section {
+  margin-top: 2rem;
+}
+
+.youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Alleen .player-section aanpassen op mobiel */
 @media (max-width: 768px) {
   .player-section {
     flex-direction: column;
@@ -30,12 +40,21 @@
   }
 }
 
-.youtube-section {
-  margin-top: 2rem;
-}
+/* YouTube-grid onder elkaar zetten op mobiel */
+@media (max-width: 768px) {
+  .youtube-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 
-.youtube-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  .youtube-grid iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 352px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
 }
