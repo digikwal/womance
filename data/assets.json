@@ -1,128 +1,143 @@
 [
   {
-    "name": "bestie-covers.jpg",
-    "category": "covers",
-    "type": "image",
-    "thumbnail": "/assets/covers/bestie-covers.jpg"
+    "name": "covers",
+    "type": "directory",
+    "children": [
+      {
+        "name": "bestie-covers.jpg",
+        "type": "image",
+        "thumbnail": "/assets/covers/bestie-covers.jpg"
+      },
+      {
+        "name": "ik-voel-niks-covers.jpg",
+        "type": "image",
+        "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
+      },
+      {
+        "name": "luxe-problemen-covers.jpg",
+        "type": "image",
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
+      },
+      {
+        "name": "moeilijk-covers.jpg",
+        "type": "image",
+        "thumbnail": "/assets/covers/moeilijk-covers.jpg"
+      }
+    ]
   },
   {
-    "name": "ik-voel-niks-covers.jpg",
-    "category": "covers",
-    "type": "image",
-    "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
+    "name": "docs",
+    "type": "directory",
+    "children": [
+      {
+        "name": "WOMANCE EPK.pdf",
+        "type": "other",
+        "thumbnail": "fa-smile"
+      }
+    ]
   },
   {
-    "name": "luxe-problemen-covers.jpg",
-    "category": "covers",
-    "type": "image",
-    "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
+    "name": "lyrics",
+    "type": "directory",
+    "children": [
+      {
+        "name": "bestie-lyrics.md",
+        "type": "other",
+        "thumbnail": "fa-smile"
+      },
+      {
+        "name": "ik-voel-niks-lyrics.md",
+        "type": "other",
+        "thumbnail": "fa-smile"
+      },
+      {
+        "name": "luxe-problemen-lyrics.md",
+        "type": "other",
+        "thumbnail": "fa-smile"
+      },
+      {
+        "name": "moeilijk-lyrics.md",
+        "type": "other",
+        "thumbnail": "fa-smile"
+      }
+    ]
   },
   {
-    "name": "moeilijk-covers.jpg",
-    "category": "covers",
-    "type": "image",
-    "thumbnail": "/assets/covers/moeilijk-covers.jpg"
+    "name": "posters",
+    "type": "directory",
+    "children": [
+      {
+        "name": "moeilijk-poster.png",
+        "type": "image",
+        "thumbnail": "/assets/posters/moeilijk-poster.png"
+      }
+    ]
   },
   {
-    "name": "WOMANCE EPK.pdf",
-    "category": "docs",
-    "type": "other",
-    "thumbnail": "fa-smile"
+    "name": "press",
+    "type": "directory",
+    "children": [
+      {
+        "name": "ayisha-1-portrait.jpg",
+        "type": "image",
+        "thumbnail": "/assets/press/ayisha-1-portrait.jpg"
+      },
+      {
+        "name": "ayisha-2-portrait.jpg",
+        "type": "image",
+        "thumbnail": "/assets/press/ayisha-2-portrait.jpg"
+      },
+      {
+        "name": "ayisha-portrait.jpg",
+        "type": "image",
+        "thumbnail": "/assets/press/ayisha-portrait.jpg"
+      },
+      {
+        "name": "betty-1-portrait.jpg",
+        "type": "image",
+        "thumbnail": "/assets/press/betty-1-portrait.jpg"
+      },
+      {
+        "name": "betty-portrait.jpg",
+        "type": "image",
+        "thumbnail": "/assets/press/betty-portrait.jpg"
+      },
+      {
+        "name": "duo-portrait.png",
+        "type": "image",
+        "thumbnail": "/assets/press/duo-portrait.png"
+      },
+      {
+        "name": "logo.png",
+        "type": "image",
+        "thumbnail": "/assets/press/logo.png"
+      }
+    ]
   },
   {
-    "name": "bestie-lyrics.md",
-    "category": "lyrics",
-    "type": "other",
-    "thumbnail": "/assets/covers/bestie-covers.jpg"
-  },
-  {
-    "name": "ik-voel-niks-lyrics.md",
-    "category": "lyrics",
-    "type": "other",
-    "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
-  },
-  {
-    "name": "luxe-problemen-lyrics.md",
-    "category": "lyrics",
-    "type": "other",
-    "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
-  },
-  {
-    "name": "moeilijk-lyrics.md",
-    "category": "lyrics",
-    "type": "other",
-    "thumbnail": "/assets/covers/moeilijk-covers.jpg"
-  },
-  {
-    "name": "moeilijk-poster.png",
-    "category": "posters",
-    "type": "image",
-    "thumbnail": "/assets/posters/moeilijk-poster.png"
-  },
-  {
-    "name": "ayisha-1-portrait.jpg",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/ayisha-1-portrait.jpg"
-  },
-  {
-    "name": "ayisha-2-portrait.jpg",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/ayisha-2-portrait.jpg"
-  },
-  {
-    "name": "ayisha-portrait.jpg",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/ayisha-portrait.jpg"
-  },
-  {
-    "name": "betty-1-portrait.jpg",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/betty-1-portrait.jpg"
-  },
-  {
-    "name": "betty-portrait.jpg",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/betty-portrait.jpg"
-  },
-  {
-    "name": "duo-portrait.png",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/duo-portrait.png"
-  },
-  {
-    "name": "logo.png",
-    "category": "press",
-    "type": "image",
-    "thumbnail": "/assets/press/logo.png"
-  },
-  {
-    "name": "bestie-songs.mp3",
-    "category": "songs",
-    "type": "audio",
-    "thumbnail": "/assets/covers/bestie-covers.jpg"
-  },
-  {
-    "name": "ik-voel-niks-songs.mp3",
-    "category": "songs",
-    "type": "audio",
-    "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
-  },
-  {
-    "name": "luxe-problemen-songs.mp3",
-    "category": "songs",
-    "type": "audio",
-    "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
-  },
-  {
-    "name": "moeilijk-songs.mp3",
-    "category": "songs",
-    "type": "audio",
-    "thumbnail": "/assets/covers/moeilijk-covers.jpg"
+    "name": "songs",
+    "type": "directory",
+    "children": [
+      {
+        "name": "bestie-songs.mp3",
+        "type": "audio",
+        "thumbnail": "fa-smile"
+      },
+      {
+        "name": "ik-voel-niks-songs.mp3",
+        "type": "audio",
+        "thumbnail": "fa-smile"
+      },
+      {
+        "name": "luxe-problemen-songs.mp3",
+        "type": "audio",
+        "thumbnail": "fa-smile"
+      },
+      {
+        "name": "moeilijk-songs.mp3",
+        "type": "audio",
+        "thumbnail": "fa-smile"
+      }
+    ]
   }
 ]
