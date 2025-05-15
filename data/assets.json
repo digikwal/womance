@@ -31,19 +31,6 @@
     "category": "root"
   },
   {
-    "name": "docs",
-    "type": "directory",
-    "children": [
-      {
-        "name": "WOMANCE EPK.pdf",
-        "type": "other",
-        "thumbnail": "fa-smile",
-        "category": "root"
-      }
-    ],
-    "category": "root"
-  },
-  {
     "name": "lyrics",
     "type": "directory",
     "children": [
