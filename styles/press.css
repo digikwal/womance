@@ -76,7 +76,9 @@
 }
 
 .thumbnail-container {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px;
 }
 
@@ -136,4 +138,19 @@
   width: 100px;
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Pas aan naar wens */
+  width: 100px; /* Pas aan naar wens */
+  background-color: #f0f0f0; /* Optioneel: achtergrondkleur */
+  border-radius: 50%; /* Optioneel: ronde vorm */
+}
+
+.download-link {
+  text-decoration: none;
+  cursor: pointer;
 }

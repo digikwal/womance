@@ -70,15 +70,32 @@ function renderFiles(files) {
   fileBrowser.innerHTML = '';
   previewContainer.innerHTML = '';
 
+  if (files.length === 0) {
+    // Toon een melding als er geen bestanden zijn
+    const emptyMessage = document.createElement('p');
+    emptyMessage.textContent = 'Geen bestanden gevonden voor deze categorie.';
+    emptyMessage.classList.add('empty-message');
+    fileBrowser.appendChild(emptyMessage);
+    return;
+  }
+
   files.forEach(file => {
     const thumbnailContainer = document.createElement('div');
     thumbnailContainer.classList.add('thumbnail-container');
-
+  
     if (file.thumbnail === "fa-smile") {
       // Voeg een Font Awesome-smiley toe
       const icon = document.createElement('i');
-      icon.classList.add('fas', 'fa-smile', 'default-icon'); // Zorg dat Font Awesome geladen is
-      thumbnailContainer.appendChild(icon);
+      icon.classList.add('fas', 'fa-smile', 'default-icon'); // Font Awesome icoon
+  
+      // Maak het icoon klikbaar voor downloaden
+      const downloadLink = document.createElement('a');
+      downloadLink.href = `/assets/${file.category}/${file.name}`; // Dynamische URL met categorie
+      downloadLink.download = file.name;
+      downloadLink.classList.add('download-link');
+      downloadLink.appendChild(icon);
+  
+      thumbnailContainer.appendChild(downloadLink);
     } else if (file.thumbnail) {
       // Voeg de thumbnail toe
       const img = document.createElement('img');
@@ -86,17 +103,17 @@ function renderFiles(files) {
       img.alt = file.name;
       img.classList.add('thumbnail');
       thumbnailContainer.appendChild(img);
-
+  
       // Voeg een klik-event toe om de preview te vergroten
       img.addEventListener('click', () => {
         showPreview(file);
       });
     }
-
+  
     fileBrowser.appendChild(thumbnailContainer);
   });
 }
-
+  
 // Toon een vergrote preview met downloadknop
 function showPreview(file) {
   // Leeg de preview container
