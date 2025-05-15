@@ -71,11 +71,15 @@ function renderFiles(files) {
   previewContainer.innerHTML = '';
 
   files.forEach(file => {
-    if (file.type === 'image' && file.thumbnail) {
-      // Maak een container voor de thumbnail
-      const thumbnailContainer = document.createElement('div');
-      thumbnailContainer.classList.add('thumbnail-container');
+    const thumbnailContainer = document.createElement('div');
+    thumbnailContainer.classList.add('thumbnail-container');
 
+    if (file.thumbnail === "fa-smile") {
+      // Voeg een Font Awesome-smiley toe
+      const icon = document.createElement('i');
+      icon.classList.add('fas', 'fa-smile', 'default-icon'); // Zorg dat Font Awesome geladen is
+      thumbnailContainer.appendChild(icon);
+    } else if (file.thumbnail) {
       // Voeg de thumbnail toe
       const img = document.createElement('img');
       img.src = file.thumbnail;
@@ -87,9 +91,9 @@ function renderFiles(files) {
       img.addEventListener('click', () => {
         showPreview(file);
       });
-
-      fileBrowser.appendChild(thumbnailContainer);
     }
+
+    fileBrowser.appendChild(thumbnailContainer);
   });
 }
 

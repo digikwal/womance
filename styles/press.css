@@ -125,3 +125,15 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.default-icon {
+  font-size: 48px;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

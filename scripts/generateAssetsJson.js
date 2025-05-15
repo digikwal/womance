@@ -40,6 +40,22 @@ const generateAssetsJson = () => {
     }
   });
 
+  // Controleer op ontbrekende thumbnails en voeg covers of een standaard-smiley toe
+  assets.forEach(asset => {
+    if (!asset.thumbnail && asset.category !== "covers") {
+      const baseTitle = asset.name.split('-')[0];
+      const matchingCover = assets.find(
+        a => a.category === "covers" && a.name.startsWith(baseTitle)
+      );
+      if (matchingCover) {
+        asset.thumbnail = matchingCover.thumbnail;
+      } else {
+        // Gebruik een standaard Font Awesome-smiley als fallback
+        asset.thumbnail = "fa-smile"; // Dit kan in de frontend worden geïnterpreteerd als een Font Awesome-icoon
+      }
+    }
+  });
+
   fs.writeFileSync(outputFile, JSON.stringify(assets, null, 2));
   console.log(`assets.json gegenereerd in ${outputFile}`);
 };
