@@ -6,24 +6,29 @@
       {
         "name": "bestie-covers.jpg",
         "type": "image",
-        "thumbnail": "/assets/covers/bestie-covers.jpg"
+        "thumbnail": "/assets/covers/bestie-covers.jpg",
+        "category": "root"
       },
       {
         "name": "ik-voel-niks-covers.jpg",
         "type": "image",
-        "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg"
+        "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg",
+        "category": "root"
       },
       {
         "name": "luxe-problemen-covers.jpg",
         "type": "image",
-        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg"
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg",
+        "category": "root"
       },
       {
         "name": "moeilijk-covers.jpg",
         "type": "image",
-        "thumbnail": "/assets/covers/moeilijk-covers.jpg"
+        "thumbnail": "/assets/covers/moeilijk-covers.jpg",
+        "category": "root"
       }
-    ]
+    ],
+    "category": "root"
   },
   {
     "name": "docs",
@@ -32,9 +37,11 @@
       {
         "name": "WOMANCE EPK.pdf",
         "type": "other",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       }
-    ]
+    ],
+    "category": "root"
   },
   {
     "name": "lyrics",
@@ -43,24 +50,29 @@
       {
         "name": "bestie-lyrics.md",
         "type": "other",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       },
       {
         "name": "ik-voel-niks-lyrics.md",
         "type": "other",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       },
       {
         "name": "luxe-problemen-lyrics.md",
         "type": "other",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       },
       {
         "name": "moeilijk-lyrics.md",
         "type": "other",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       }
-    ]
+    ],
+    "category": "root"
   },
   {
     "name": "posters",
@@ -69,9 +81,11 @@
       {
         "name": "moeilijk-poster.png",
         "type": "image",
-        "thumbnail": "/assets/posters/moeilijk-poster.png"
+        "thumbnail": "/assets/posters/moeilijk-poster.png",
+        "category": "root"
       }
-    ]
+    ],
+    "category": "root"
   },
   {
     "name": "press",
@@ -80,39 +94,388 @@
       {
         "name": "ayisha-1-portrait.jpg",
         "type": "image",
-        "thumbnail": "/assets/press/ayisha-1-portrait.jpg"
+        "thumbnail": "/assets/press/ayisha-1-portrait.jpg",
+        "category": "root"
       },
       {
         "name": "ayisha-2-portrait.jpg",
         "type": "image",
-        "thumbnail": "/assets/press/ayisha-2-portrait.jpg"
+        "thumbnail": "/assets/press/ayisha-2-portrait.jpg",
+        "category": "root"
       },
       {
         "name": "ayisha-portrait.jpg",
         "type": "image",
-        "thumbnail": "/assets/press/ayisha-portrait.jpg"
+        "thumbnail": "/assets/press/ayisha-portrait.jpg",
+        "category": "root"
       },
       {
         "name": "betty-1-portrait.jpg",
         "type": "image",
-        "thumbnail": "/assets/press/betty-1-portrait.jpg"
+        "thumbnail": "/assets/press/betty-1-portrait.jpg",
+        "category": "root"
       },
       {
         "name": "betty-portrait.jpg",
         "type": "image",
-        "thumbnail": "/assets/press/betty-portrait.jpg"
+        "thumbnail": "/assets/press/betty-portrait.jpg",
+        "category": "root"
       },
       {
         "name": "duo-portrait.png",
         "type": "image",
-        "thumbnail": "/assets/press/duo-portrait.png"
+        "thumbnail": "/assets/press/duo-portrait.png",
+        "category": "root"
       },
       {
         "name": "logo.png",
         "type": "image",
-        "thumbnail": "/assets/press/logo.png"
+        "thumbnail": "/assets/press/logo.png",
+        "category": "root"
+      },
+      {
+        "name": "song-pack",
+        "type": "directory",
+        "children": [
+          {
+            "name": "bestie",
+            "type": "directory",
+            "children": [
+              {
+                "name": "Bestie cover fv.jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/Bestie cover fv.jpg",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-1.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-1.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-10.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-10.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-2.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-2.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-3.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-3.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-4.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-4.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-5.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-5.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-6.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-6.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-7.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-7.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-8.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-8.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance-9.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance-9.png",
+                "category": "root"
+              },
+              {
+                "name": "bestie-womance.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/bestie-womance.png",
+                "category": "root"
+              },
+              {
+                "name": "hand-ayi.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/hand-ayi.png",
+                "category": "root"
+              },
+              {
+                "name": "hand-bet.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/hand-bet.png",
+                "category": "root"
+              },
+              {
+                "name": "yt-bestie-banner.jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/bestie/yt-bestie-banner.jpg",
+                "category": "root"
+              }
+            ],
+            "category": "root"
+          },
+          {
+            "name": "ik-voel-niks",
+            "type": "directory",
+            "children": [
+              {
+                "name": "Ik voel niks stars .jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/ik-voel-niks/Ik voel niks stars .jpg",
+                "category": "root"
+              },
+              {
+                "name": "InShot_20250107_170043637.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/ik-voel-niks/InShot_20250107_170043637.png",
+                "category": "root"
+              },
+              {
+                "name": "Womance - Ik Voel Niks cover.jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/ik-voel-niks/Womance - Ik Voel Niks cover.jpg",
+                "category": "root"
+              },
+              {
+                "name": "Womance profiel foto.jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/ik-voel-niks/Womance profiel foto.jpg",
+                "category": "root"
+              },
+              {
+                "name": "YT-Thumbnail-Ik voel niks.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/ik-voel-niks/YT-Thumbnail-Ik voel niks.png",
+                "category": "root"
+              }
+            ],
+            "category": "root"
+          },
+          {
+            "name": "luxe-problemen",
+            "type": "directory",
+            "children": [
+              {
+                "name": "Betty KO1.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/Betty KO1.png",
+                "category": "root"
+              },
+              {
+                "name": "Doakes.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/Doakes.png",
+                "category": "root"
+              },
+              {
+                "name": "Luxe Problemen - Coverart Final.jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/Luxe Problemen - Coverart Final.jpg",
+                "category": "root"
+              },
+              {
+                "name": "Luxe Problemen Titel.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/Luxe Problemen Titel.png",
+                "category": "root"
+              },
+              {
+                "name": "SUB-Herken je het ook.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/SUB-Herken je het ook.png",
+                "category": "root"
+              },
+              {
+                "name": "koppelpoort-shot-ab.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/koppelpoort-shot-ab.png",
+                "category": "root"
+              },
+              {
+                "name": "mc-shot-ab.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/mc-shot-ab.png",
+                "category": "root"
+              },
+              {
+                "name": "sad op bankje-shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/sad op bankje-shot.png",
+                "category": "root"
+              },
+              {
+                "name": "stadsmuur-shot-ab-1.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/stadsmuur-shot-ab-1.png",
+                "category": "root"
+              },
+              {
+                "name": "stadsmuur-shot-ab.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/stadsmuur-shot-ab.png",
+                "category": "root"
+              },
+              {
+                "name": "timbs-shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/timbs-shot.png",
+                "category": "root"
+              },
+              {
+                "name": "tower-ayi-shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/tower-ayi-shot.png",
+                "category": "root"
+              },
+              {
+                "name": "tower-bat-shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/tower-bat-shot.png",
+                "category": "root"
+              },
+              {
+                "name": "wijn-shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/wijn-shot.png",
+                "category": "root"
+              },
+              {
+                "name": "womance armedillo shot4.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance armedillo shot4.png",
+                "category": "root"
+              },
+              {
+                "name": "womance bankje-shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance bankje-shot.png",
+                "category": "root"
+              },
+              {
+                "name": "womance bankje-shot1.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance bankje-shot1.png",
+                "category": "root"
+              },
+              {
+                "name": "womance bankje-shot2.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance bankje-shot2.png",
+                "category": "root"
+              },
+              {
+                "name": "womance bankje-shot3.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance bankje-shot3.png",
+                "category": "root"
+              },
+              {
+                "name": "womance shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance shot.png",
+                "category": "root"
+              },
+              {
+                "name": "womance w shot.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/luxe-problemen/womance w shot.png",
+                "category": "root"
+              }
+            ],
+            "category": "root"
+          },
+          {
+            "name": "moeilijk",
+            "type": "directory",
+            "children": [
+              {
+                "name": "Ayi moeilijk.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/Ayi moeilijk.png",
+                "category": "root"
+              },
+              {
+                "name": "Betty moeilijk.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/Betty moeilijk.png",
+                "category": "root"
+              },
+              {
+                "name": "Hak womance.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/Hak womance.png",
+                "category": "root"
+              },
+              {
+                "name": "aankondiging Moeilijk.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/aankondiging Moeilijk.png",
+                "category": "root"
+              },
+              {
+                "name": "cover-moeilijk.jpg",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/cover-moeilijk.jpg",
+                "category": "root"
+              },
+              {
+                "name": "cover-moeilijk.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/cover-moeilijk.png",
+                "category": "root"
+              },
+              {
+                "name": "poster-moeilijk (2).png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/poster-moeilijk (2).png",
+                "category": "root"
+              },
+              {
+                "name": "poster-moeilijk.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/poster-moeilijk.png",
+                "category": "root"
+              },
+              {
+                "name": "postit.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/postit.png",
+                "category": "root"
+              },
+              {
+                "name": "yt-thumbnail.png",
+                "type": "image",
+                "thumbnail": "/assets/press/song-pack/moeilijk/yt-thumbnail.png",
+                "category": "root"
+              }
+            ],
+            "category": "root"
+          }
+        ],
+        "category": "root"
       }
-    ]
+    ],
+    "category": "root"
   },
   {
     "name": "songs",
@@ -121,23 +484,28 @@
       {
         "name": "bestie-songs.mp3",
         "type": "audio",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       },
       {
         "name": "ik-voel-niks-songs.mp3",
         "type": "audio",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       },
       {
         "name": "luxe-problemen-songs.mp3",
         "type": "audio",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       },
       {
         "name": "moeilijk-songs.mp3",
         "type": "audio",
-        "thumbnail": "fa-smile"
+        "thumbnail": "fa-smile",
+        "category": "root"
       }
-    ]
+    ],
+    "category": "root"
   }
 ]
