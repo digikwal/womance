@@ -45,6 +45,20 @@ const generateAssetsJson = () => {
     return structure;
   };
 
+  const flattenAssets = (directory) => {
+    const flatList = [];
+    const traverse = (dir) => {
+      dir.forEach((item) => {
+        flatList.push(item);
+        if (item.type === "directory" && item.children) {
+          traverse(item.children);
+        }
+      });
+    };
+    traverse(directory);
+    return flatList;
+  };
+
   const assignThumbnails = (directory, allAssets) => {
     directory.forEach((item) => {
       if (item.type === "directory") {
@@ -59,7 +73,7 @@ const generateAssetsJson = () => {
             asset.category === "covers" &&
             asset.name.startsWith(baseTitle)
         );
-  
+
         if (matchingCover) {
           item.thumbnail = matchingCover.thumbnail; // Gebruik de gevonden cover als thumbnail
         } else {
@@ -77,8 +91,17 @@ const generateAssetsJson = () => {
 
   const assets = buildDirectoryStructure(assetsDir);
 
+  // Maak een platte lijst van alle assets
+  const allAssets = flattenAssets(assets);
+
+  // Voeg de categorie toe aan elk item in de platte lijst
+  allAssets.forEach((asset) => {
+    const parentDir = path.dirname(asset.name);
+    asset.category = parentDir === "." ? "root" : parentDir;
+  });
+
   // Thumbnails toewijzen
-  assignThumbnails(assets);
+  assignThumbnails(assets, allAssets);
 
   fs.writeFileSync(outputFile, JSON.stringify(assets, null, 2));
   console.log(`assets.json gegenereerd in ${outputFile}`);

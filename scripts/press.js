@@ -49,6 +49,15 @@ function getCurrentDirectory(allFiles) {
 function renderFiles(items) {
   fileBrowser.innerHTML = '';
 
+  // Toon een bericht als er geen categorie is geselecteerd
+  if (currentPath.length === 0) {
+    const message = document.createElement('div');
+    message.classList.add('no-category-message');
+    message.textContent = 'Selecteer een categorie aan de linkerkant om te beginnen met bladeren.';
+    fileBrowser.appendChild(message);
+    return;
+  }
+
   // Voeg een "terug"-knop toe als we niet in de root zijn
   if (currentPath.length > 0) {
     const backButton = document.createElement('div');
