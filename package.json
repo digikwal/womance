@@ -6,7 +6,7 @@
   "scripts": {
     "generate-assets": "node generateAssetsJson.js"
   },
-  "author": "Your Name",
+  "author": "Digikwal",
   "license": "MIT",
   "dependencies": {}
 }
