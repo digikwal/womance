@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisteren – WOMANCE</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    .player-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .youtube-section {
+      margin-top: 4rem;
+    }
+    .youtube-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main class="page-center">
+  <h1>Luisteren</h1>
+  <p class="tagline">Waar je ook bent, Womance klinkt overal.</p>
+
+  <div class="player-section">
+    <!-- Apple Music Embed -->
+    <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:300px;max-width:100%;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/nl/artist/womance/1789755169"></iframe>
+
+    <!-- Spotify Embed -->
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/7cyNW498a5ZjNsYXC6TmeN?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+    <!-- SoundCloud Embed -->
+    <iframe width="300" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/womance&color=%23f64699&inverse=false&auto_play=false&show_user=true"></iframe>
+  </div>
+
+  <div class="youtube-section">
+    <h2> YouTube</h2>
+    <div class="youtube-grid">
+      <iframe width="100%" height="200" src="https://www.youtube.com/embed?listType=user_uploads&list=@wo_mance" title="YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+  fetch("/partials/header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+
+  fetch("/partials/footer.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("footer").innerHTML = html);
+</script>
+
+</body>
+</html>
