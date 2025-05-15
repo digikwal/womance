@@ -1,0 +1,29 @@
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.p-1 {
+  padding: 1rem !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.flex-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
