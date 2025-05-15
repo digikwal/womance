@@ -45,20 +45,23 @@ const generateAssetsJson = () => {
     return structure;
   };
 
-  const assignThumbnails = (directory) => {
+  const assignThumbnails = (directory, allAssets) => {
     directory.forEach((item) => {
       if (item.type === "directory") {
         // Recursief thumbnails toewijzen aan subdirectories
-        assignThumbnails(item.children);
+        assignThumbnails(item.children, allAssets);
       } else if (!item.thumbnail) {
-        // Zoek een bijpassende cover of gebruik een fallback
+        // Zoek een bijpassende cover in de "covers" categorie
         const baseTitle = item.name.split("-")[0];
-        const matchingCover = directory.find(
-          (child) => child.type === "image" && child.name.startsWith(baseTitle)
+        const matchingCover = allAssets.find(
+          (asset) =>
+            asset.type === "image" &&
+            asset.category === "covers" &&
+            asset.name.startsWith(baseTitle)
         );
-
+  
         if (matchingCover) {
-          item.thumbnail = matchingCover.thumbnail;
+          item.thumbnail = matchingCover.thumbnail; // Gebruik de gevonden cover als thumbnail
         } else {
           // Gebruik een standaard Font Awesome-smiley als fallback
           item.thumbnail = "fa-smile"; // Dit kan in de frontend worden geïnterpreteerd als een Font Awesome-icoon
