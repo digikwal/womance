@@ -1,3 +1,5 @@
+[![Deploy GitHub Pages](https://github.com/digikwal/womance/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/digikwal/womance/actions/workflows/jekyll-gh-pages.yml)
+
 # WOMANCE EPK
 
 Welkom bij de officiële WOMANCE Electronic Press Kit (EPK).
