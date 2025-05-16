@@ -294,11 +294,3 @@
   .rotate-overlay { font-size: 1.2rem; padding: 1.5rem; }
   .rotate-icon { font-size: 2.5rem; }
 }
-
-.visually-hidden {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
-}
