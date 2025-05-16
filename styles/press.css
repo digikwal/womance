@@ -1,8 +1,8 @@
-/* Finder-container */
+/* === FINDER STRUCTUUR === */
 .finder {
   display: grid;
-  grid-template-columns: 200px 1fr 1fr; /* Drie kolommen: sidebar, content, subcontent */
-  grid-template-rows: auto 1fr; /* Zoekbalk bovenaan, inhoud eronder */
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: auto 1fr;
   height: 60vh;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -11,16 +11,15 @@
   background-color: #fff;
 }
 
-/* Zoekbalk in Finder-header */
 .finder-header {
-  grid-column: 1 / 4; /* Laat de zoekbalk over alle drie de kolommen lopen */
-  grid-row: 1; /* Plaats de zoekbalk in de eerste rij */
+  grid-column: 1 / 4;
+  grid-row: 1;
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
   background-color: #f9f9f9;
-  z-index: 10; /* Zorg ervoor dat de zoekbalk boven andere elementen ligt */
+  z-index: 10;
 }
 
 .finder-search {
@@ -38,58 +37,61 @@
   border-color: var(--primary-color);
 }
 
-/* Algemene styling voor alle kolommen */
+/* === KOLommen === */
 .finder > div {
   padding: 1rem;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #fff;
-  border-left: 1px solid #ddd; /* Scheidingslijn tussen kolommen */
+  border-left: 1px solid #ddd;
 }
 
-/* Sidebar (eerste kolom) */
 .finder-categories {
-  grid-column: 1; /* Eerste kolom */
-  grid-row: 2; /* Onder de zoekbalk */
-  border-left: none; /* Geen scheidingslijn aan de linkerkant */
-  border-right: 1px solid #ddd; /* Scheidingslijn rechts */
+  grid-column: 1;
+  grid-row: 2;
+  border-left: none;
+  border-right: 1px solid #ddd;
   display: flex;
   flex-direction: column;
 }
 
-/* Bestanden (tweede kolom) */
 #fileBrowser {
-  grid-column: 2; /* Tweede kolom */
-  grid-row: 2; /* Onder de zoekbalk */
+  grid-column: 2;
+  grid-row: 2;
 }
 
-/* Highlight voor actieve map in kolom 2 */
-#fileBrowser .directory.active {
-  background-color: #e8f4ff; /* Lichtblauwe achtergrond */
-  border-left: 4px solid var(--primary-color); /* Accentkleur aan de linkerkant */
-  color: var(--primary-color); /* Tekstkleur aanpassen */
-}
-
-/* Subbestanden (derde kolom) */
 #subFileBrowser {
-  grid-column: 3; /* Derde kolom */
-  grid-row: 2; /* Onder de zoekbalk */
-  border-radius: 0 8px 8px 0; /* Alleen afgeronde hoeken aan de rechterkant */
+  grid-column: 3;
+  grid-row: 2;
+  border-radius: 0 8px 8px 0;
 }
 
-/* Finder-items (algemeen) */
-.finder-item {
+#fileBrowser .directory.active {
+  background-color: #e8f4ff;
+  border-left: 4px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* === FINDER ITEMS === */
+.finder-item,
+.finder-content .file,
+.finder-content .directory {
   padding: 0.75rem 1rem;
   cursor: pointer;
+  font-size: 1rem;
   transition: background 0.2s, transform 0.2s;
   text-align: left;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
   border-left: 4px solid transparent;
 }
 
-.finder-item:hover {
+.finder-item {
+  font-weight: bold;
+  color: #333;
+}
+
+.finder-item:hover,
+.finder-content .file:hover,
+.finder-content .directory:hover {
   color: var(--primary-color);
   background-color: #e8f4ff;
   transform: scale(1.05);
@@ -101,31 +103,9 @@
   border-left: 4px solid #000;
 }
 
-/* Bestanden en directories */
 .finder-content .file,
 .finder-content .directory {
-  padding: 0.2rem 0.5rem;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  text-align: left;
-  font-size: 1rem;
   font-weight: normal;
-  color: #333;
-  border-left: 4px solid transparent;
-}
-
-.finder-content .file:hover,
-.finder-content .directory:hover {
-  color: var(--primary-color);
-  background-color: #e8f4ff;
-  transform: scale(1.05);
-}
-
-.finder-content .directory {
-  color: var(--text-color);
-}
-
-.finder-content .file {
   color: var(--text-color);
 }
 
@@ -139,53 +119,75 @@
   color: var(--primary-color);
 }
 
-/* Preview-overlay */
+/* === PREVIEW === */
 .preview-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-.preview-overlay .button-container {
-  display: flex;
-  gap: 10px; /* Ruimte tussen de knoppen */
-  justify-content: center; /* Knoppen centreren */
-  margin-top: 20px; /* Optionele marge boven de knoppen */
+.preview-image,
+.preview-video,
+.preview-audio,
+.preview-pdf,
+.preview-text {
+  max-width: 90vw;
+  max-height: 70vh;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: white;
 }
 
 .preview-image {
-  max-width: 80%;
-  max-height: 80%;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
 }
 
-/* Container voor de knoppen in de preview-overlay */
+.preview-video,
+.preview-audio,
+.preview-pdf {
+  width: 100%;
+}
+
+.preview-text {
+  background: #f5f5f5;
+  padding: 1rem;
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+/* === KNOPPEN === */
 .button-container {
   display: flex;
-  gap: 10px; /* Ruimte tussen de knoppen */
-  justify-content: center; /* Knoppen centreren */
-  margin-top: 20px; /* Optionele marge boven de knoppen */
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.download-button,
+.close-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
 }
 
 .download-button {
   background: #007bff;
   color: white;
-  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
 }
 
 .download-button:hover {
@@ -195,19 +197,14 @@
 .close-button {
   background: #dc3545;
   color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.2s ease-in-out;
 }
 
 .close-button:hover {
   background: #a71d2a;
 }
 
-/* Pijlen voor navigatie */
+/* === NAVIGATIEPIJLEN === */
 .arrow {
   position: absolute;
   top: 50%;
@@ -238,16 +235,12 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* Pijlen voor navigatie */
 .arrow i {
-  font-size: 1.5rem; /* Zorg ervoor dat de iconen goed zichtbaar zijn */
   color: white;
+  font-size: 1.5rem;
 }
 
-.arrow:hover i {
-  color: #fff; /* Optionele hoverkleur */
-}
-
+/* === ROTATE OVERLAY === */
 .rotate-overlay {
   position: fixed;
   top: 0;
@@ -292,27 +285,12 @@
 }
 
 @keyframes rotate-fade {
-  0% {
-    transform: rotate(0deg) translateY(0);
-    opacity: 0.2;
-  }
-  50% {
-    transform: rotate(180deg) translateY(-10px);
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(360deg) translateY(0);
-    opacity: 0.2;
-  }
+  0%   { transform: rotate(0deg) translateY(0); opacity: 0.2; }
+  50%  { transform: rotate(180deg) translateY(-10px); opacity: 1; }
+  100% { transform: rotate(360deg) translateY(0); opacity: 0.2; }
 }
 
 @media (max-width: 480px) {
-  .rotate-overlay {
-    font-size: 1.2rem;
-    padding: 1.5rem;
-  }
-
-  .rotate-icon {
-    font-size: 2.5rem;
-  }
+  .rotate-overlay { font-size: 1.2rem; padding: 1.5rem; }
+  .rotate-icon { font-size: 2.5rem; }
 }
