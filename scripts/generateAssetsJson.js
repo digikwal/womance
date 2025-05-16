@@ -5,7 +5,7 @@ const assetsDir = path.join(__dirname, "..", "assets");
 const outputFile = path.join(__dirname, "..", "data", "assets.json");
 
 const generateAssetsJson = () => {
-  const buildDirectoryStructure = (dirPath) => {
+  const buildDirectoryStructure = (dirPath, category = "root") => {
     const items = fs.readdirSync(dirPath);
     const structure = [];
 
@@ -14,30 +14,37 @@ const generateAssetsJson = () => {
       const stats = fs.lstatSync(itemPath);
 
       if (stats.isDirectory()) {
-        // Recursief directories verwerken
+        const newCategory = path.relative(assetsDir, itemPath).split(path.sep)[0];
         structure.push({
           name: item,
           type: "directory",
-          children: buildDirectoryStructure(itemPath),
+          category: category,
+          children: buildDirectoryStructure(itemPath, newCategory),
         });
       } else {
-        // Bestanden verwerken
-        const fileExtension = path.extname(item).toLowerCase();
+        const ext = path.extname(item).toLowerCase();
         let fileType = "other";
 
-        // Bepaal het bestandstype
-        if ([".jpg", ".jpeg", ".png", ".gif"].includes(fileExtension)) {
+        if ([".jpg", ".jpeg", ".png", ".gif"].includes(ext)) {
           fileType = "image";
-        } else if ([".mp3", ".wav"].includes(fileExtension)) {
+        } else if ([".mp3", ".wav", ".ogg"].includes(ext)) {
           fileType = "audio";
-        } else if ([".mp4", ".mov"].includes(fileExtension)) {
+        } else if ([".mp4", ".mov", ".webm", ".mpeg"].includes(ext)) {
           fileType = "video";
+        } else if ([".md", ".txt", ".log"].includes(ext)) {
+          fileType = "text";
+        } else if ([".pdf"].includes(ext)) {
+          fileType = "pdf";
         }
+
+        const relativePath = path.relative(assetsDir, itemPath).replace(/\\/g, "/");
+        const baseCategory = relativePath.split("/")[0] || "root";
 
         structure.push({
           name: item,
           type: fileType,
-          thumbnail: fileType === "image" ? `/assets/${path.relative(assetsDir, itemPath).replace(/\\/g, "/")}` : null,
+          thumbnail: fileType === "image" ? `/assets/${relativePath}` : "fa-smile",
+          category: baseCategory,
         });
       }
     });
@@ -61,24 +68,19 @@ const generateAssetsJson = () => {
 
   const assignThumbnails = (directory, allAssets) => {
     directory.forEach((item) => {
-      if (item.type === "directory") {
-        // Recursief thumbnails toewijzen aan subdirectories
+      if (item.type === "directory" && item.children) {
         assignThumbnails(item.children, allAssets);
-      } else if (!item.thumbnail) {
-        // Zoek een bijpassende cover in de "covers" categorie
+      } else if (!item.thumbnail || item.thumbnail === "fa-smile") {
         const baseTitle = item.name.split("-")[0];
         const matchingCover = allAssets.find(
           (asset) =>
             asset.type === "image" &&
             asset.category === "covers" &&
-            asset.name.startsWith(baseTitle)
+            asset.name.toLowerCase().startsWith(baseTitle.toLowerCase())
         );
 
         if (matchingCover) {
-          item.thumbnail = matchingCover.thumbnail; // Gebruik de gevonden cover als thumbnail
-        } else {
-          // Gebruik een standaard Font Awesome-smiley als fallback
-          item.thumbnail = "fa-smile"; // Dit kan in de frontend worden geïnterpreteerd als een Font Awesome-icoon
+          item.thumbnail = matchingCover.thumbnail;
         }
       }
     });
@@ -90,17 +92,7 @@ const generateAssetsJson = () => {
   }
 
   const assets = buildDirectoryStructure(assetsDir);
-
-  // Maak een platte lijst van alle assets
   const allAssets = flattenAssets(assets);
-
-  // Voeg de categorie toe aan elk item in de platte lijst
-  allAssets.forEach((asset) => {
-    const parentDir = path.dirname(asset.name);
-    asset.category = parentDir === "." ? "root" : parentDir;
-  });
-
-  // Thumbnails toewijzen
   assignThumbnails(assets, allAssets);
 
   fs.writeFileSync(outputFile, JSON.stringify(assets, null, 2));
