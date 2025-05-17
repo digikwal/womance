@@ -465,6 +465,67 @@
     ]
   },
   {
+    "name": "reels",
+    "type": "directory",
+    "category": "root",
+    "children": [
+      {
+        "name": "bestie-no-music-short.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/bestie-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "ik-voel-niks-reel.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/ik-voel-niks-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "luxe-problemen-reel-2.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "luxe-problemen-reel.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "luxe-problemen-skit-1.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "luxe-problemen-skit-2.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "luxe-problemen-skit-3.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/luxe-problemen-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "moeilijk-no-music-short.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/moeilijk-covers.jpg",
+        "category": "reels"
+      },
+      {
+        "name": "moeilijk-reel.mp4",
+        "type": "video",
+        "thumbnail": "/assets/covers/moeilijk-covers.jpg",
+        "category": "reels"
+      }
+    ]
+  },
+  {
     "name": "songs",
     "type": "directory",
     "category": "root",
